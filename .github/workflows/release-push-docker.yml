@@ -5,9 +5,6 @@ on:
     tags:
       - '*'
 
-env:
-  # 设置 docker 镜像名
-  IMAGE_NAME: ghcr.io/ittoyxk
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,8 +38,8 @@ jobs:
           platforms: |
             linux/amd64
           tags: |
-            $IMAGE_NAME/hoppscotch-backend:latest
-            $IMAGE_NAME/hoppscotch-backend:${{ github.ref_name }}
+            ghcr.io/ittoyxk/hoppscotch-backend:latest
+            ghcr.io/ittoyxk/hoppscotch-backend:${{ github.ref_name }}
 
       - name: Build and push the frontend container
         uses: docker/build-push-action@v4
@@ -54,8 +51,8 @@ jobs:
           platforms: |
             linux/amd64
           tags: |
-            $IMAGE_NAME/hoppscotch-app:latest
-            $IMAGE_NAME/hoppscotch-app:${{ github.ref_name }}
+            ghcr.io/ittoyxk/hoppscotch-app:latest
+            ghcr.io/ittoyxk/hoppscotch-app:${{ github.ref_name }}
 
       - name: Build and push the admin dashboard container
         uses: docker/build-push-action@v4
@@ -67,8 +64,8 @@ jobs:
           platforms: |
             linux/amd64
           tags: |
-            $IMAGE_NAME/hoppscotch-sh-admin:latest
-            $IMAGE_NAME/hoppscotch-sh-admin:${{ github.ref_name }}
+            ghcr.io/ittoyxk/hoppscotch-sh-admin:latest
+            ghcr.io/ittoyxk/hoppscotch-sh-admin:${{ github.ref_name }}
 
       - name: Build and push the AIO container
         uses: docker/build-push-action@v4
@@ -80,5 +77,5 @@ jobs:
           platforms: |
             linux/amd64
           tags: |
-            $IMAGE_NAME/hoppscotch-aio:latest
-            $IMAGE_NAME/hoppscotch-aio:${{ github.ref_name }}
+            ghcr.io/ittoyxk/hoppscotch-aio:latest
+            ghcr.io/ittoyxk/hoppscotch-aio:${{ github.ref_name }}
